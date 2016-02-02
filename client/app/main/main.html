@@ -1,0 +1,10 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container"> 
+    <ul class="comment-list">
+        <li ng-repeat="beer in beers">
+            <header>{{ beer.name }}</header>
+            <p>{{ beer.description }}</p>
+        </li>
+    </ul>
+</div>
