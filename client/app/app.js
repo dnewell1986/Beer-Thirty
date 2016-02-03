@@ -9,7 +9,8 @@ angular.module('yeomanBeerThirtyApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'infinite-scroll'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider
