@@ -1,0 +1,18 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+    <h3>Brewery Listing</h3>
+    <div class="clearfix" infinite-scroll="loadMoreBreweries()" 
+        infinite-scroll-distance="0" 
+        infinite-scroll-disabled="stopInfiniteScroll"
+        infinite-scroll-immediate-check="false">        
+        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="brewery in breweries">
+            <div class="thumbnail">
+                <span>
+                    <p class="lead">{{brewery.name}}</p>
+                    {{brewery.description}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

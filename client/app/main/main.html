@@ -1,17 +1,12 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-    <div class="clearfix" infinite-scroll="loadMoreBeers()" 
-        infinite-scroll-distance="0" 
-        infinite-scroll-disabled="stopInfiniteScroll"
-        infinite-scroll-immediate-check="false">        
-        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="beer in beers">
-            <div class="thumbnail" style="height: 275px">
-                <span>
-                    <p class="lead">{{beer.name}}</p>
-                    {{beer.description}}
-                </span>
-            </div>
-        </div>
-    </div>
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation">
+            <a ui-sref="beer">Beers</a>
+        </li>
+        <li role="presentation">
+            <a ui-sref="brewery">Breweries</a>
+        </li>
+    </ul>
 </div>
