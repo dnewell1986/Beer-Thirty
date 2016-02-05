@@ -5,7 +5,7 @@ var controller = require('./beer.controller');
 
 var router = express.Router();
 
-router.get('/', controller.index);
+router.get('/pagedBeers/:offset', controller.index);
 router.get('/:id', controller.show);
 router.get('/getByName/:name', controller.getByName);
 router.post('/', controller.create);

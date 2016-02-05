@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('bluebird').promisifyAll(require('mongoose'));
+var mongoosePaginate = require('mongoose-paginate');
 
 var BeerSchema = new mongoose.Schema({
     id: {type: String, required: true},
@@ -16,5 +17,7 @@ var BeerSchema = new mongoose.Schema({
     description: String,
     last_mod: Date
 });
+
+BeerSchema.plugin(mongoosePaginate);
 
 export default mongoose.model('Beer', BeerSchema);

@@ -6,11 +6,14 @@ angular.module('yeomanBeerThirtyApp')
         $scope.beers = [];
         $scope.stopInfiniteScroll = false;
         $scope.dataLoaded = false;
+		$scope.offset = 0;
+		$scope.limit = 30;
+		$scope.totalBeers = 0;
         
-        $http.get('/api/beers').then(function(result){
-            $scope.infiniteBeers = result.data.filter(function(beer){
-                return beer.description !== null && beer.description !== '';
-            }).sort(function(a, b) {
+        $http.get('/api/beers/pagedBeers/0').then(function(result){
+			$scope.totalBeers = result.data.total;			
+			
+            $scope.beers = result.data.docs.sort(function(a, b) {
                 if (a.name > b.name){
                     return -1;
                 }
@@ -20,7 +23,6 @@ angular.module('yeomanBeerThirtyApp')
                 return 0;
             });
             $scope.dataLoaded = true;
-            $scope.loadMoreBeers();
         });
         
         $scope.loadMoreBeers = function() {

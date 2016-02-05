@@ -62,9 +62,10 @@ function removeEntity(res) {
 
 // Gets a list of Beers
 export function index(req, res) {
-    Beer.findAsync()
-        .then(responseWithResult(res))
-        .catch();
+	var offset = parseInt(req.params.offset);
+	Beer.paginate({}, {sort: {name: -1}, offset: offset, limit: 10})
+		.then(responseWithResult(res))
+		.catch(handleError(res));
 }
 
 // Gets a single Beer from the DB
